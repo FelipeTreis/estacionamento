@@ -1,0 +1,12 @@
+services:
+  database:
+    container_name: sempre_bom
+    image: postgres:14.2-alpine3.15
+    restart: always
+    volumes:
+      - ./.pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+    ports:
+      - 5433:5432

@@ -1,0 +1,1 @@
+CREATE SEQUENCE estacionamento_id_seq INCREMENT 1;
