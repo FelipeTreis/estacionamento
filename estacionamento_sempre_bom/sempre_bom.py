@@ -1,6 +1,8 @@
+# Importa a biblioteca psycopg2-binary
 import psycopg2 as db
 
 
+# Configura a conexão com o banco de dados
 class Config:
     def __init__(self):
         self.config = {
@@ -14,6 +16,7 @@ class Config:
         }
 
 
+# Se conecta com o banco de dados
 class Connection(Config):
     def __init__(self):
         Config.__init__(self)
@@ -47,12 +50,13 @@ class Connection(Config):
 
     def execute(self, sql, params=None):
         self.cursor.execute(sql, params or ())
-    
+
     def query(self, sql, params=None):
         self.cursor.execute(sql, params or ())
         return self.fetchall()
-    
 
+
+# Funçoes para interação com o banco de dados
 class Estacionamento(Connection):
     def __init__(self):
         Connection.__init__(self)
@@ -62,7 +66,7 @@ class Estacionamento(Connection):
             sql = "INSERT INTO estacionamento (veiculo, tempo, valor) VALUES (%s, %s, %s)"
             self.execute(sql, args)
             self.commit()
-            print("Registro inserido")
+            print("Registro inserido no banco de dados")
         except Exception as e:
             print("Erro ao inserir dados", e)
 
@@ -83,4 +87,4 @@ class Estacionamento(Connection):
         data = self.query(sql, args)
         if data:
             return data
-        return "Registro não existente"    
+        return "Registro não existente"

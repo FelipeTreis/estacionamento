@@ -1,4 +1,4 @@
-'''Sistema para buscar registros.'''
+"""Sistema para buscar registros."""
 from sempre_bom import Estacionamento
 
 
