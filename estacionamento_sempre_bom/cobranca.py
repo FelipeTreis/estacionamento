@@ -16,7 +16,7 @@ print('''Tabela de veículos aceitos:\nMotocicleta;\nCarro;\nCamionete.\n
 Para Motocicleta digite: moto.\nPara Carro digite: carro.\nPara Camionete digite: camionete.\n''')
 # Insere os dados do veículo
 veiculo = input('Insira o tipo do veículo: ')
-if veiculo == 'moto':
+if veiculo == 'moto' or 'carro' or 'camionete':
     print(f'Tipo de veículo: {veiculo}.')
 else:
     print('Veículo invalido! Insira um veículo valido.')
