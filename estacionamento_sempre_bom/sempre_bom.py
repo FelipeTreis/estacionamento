@@ -82,8 +82,10 @@ class Estacionamento(Connection):
         except Exception as e:
             print("Erro ao deletar", e)
 
-    def search(self, *args, type_s="veiculo"):
+    def search(self, *args, type_s="id"):
         sql = "SELECT * FROM estacionamento WHERE veiculo LIKE %s"
+        if type_s == "id":
+            sql = "SELECT * FROM estacionamento WHERE id = %s"
         data = self.query(sql, args)
         if data:
             return data
